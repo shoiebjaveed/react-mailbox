@@ -25,13 +25,12 @@
 
 .content h5 {
     text-align: center;
-    font-size: 1rem
+    font-size: 1rem;
 }
 
 .content form {
     width: 300px;
-    margin-left: 20px;
-    
+    margin-left: 20px;    
 }
 
 .content form input {
@@ -43,14 +42,19 @@
     border-radius: 20px;
     outline: none;
 }
+
 .content form button {
     margin-left: 18%;
     width: 320px;
-    padding: 0.938rem;
+    padding: 0.150rem;
     cursor: pointer;
     background: #800020 ;
     color: rgb(255, 255, 255);
     font-size: 1rem;
     border: none;
     border-radius: 20px;
+}
+
+.content form p {
+    font-size: medium;
 }
