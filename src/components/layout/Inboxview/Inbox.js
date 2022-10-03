@@ -1,9 +1,10 @@
 import inbox from './Inbox.module.css';
 
 const Inbox = () => {
-
     return <>
-    <h1>Inbox View</h1>
+        <div className={inbox.container}>
+            <h2>This is inbox</h2>
+        </div>
     </>
 }
 

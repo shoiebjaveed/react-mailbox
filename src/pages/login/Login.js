@@ -45,7 +45,7 @@ const Login = () => {
             console.log(data) 
             auth.login(data.idToken)
             auth.userData(data.displayName, data.profilePicture)
-            navigateTo('/home')
+            navigateTo('/inbox')
         }).catch((err => {
             alert(err.message)
           }))//if connection failed

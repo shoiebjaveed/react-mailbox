@@ -1,0 +1,9 @@
+.content button {
+    margin-top: 2%;
+    margin-left: 45%;
+    background-color: #800020;
+    color: white;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+}

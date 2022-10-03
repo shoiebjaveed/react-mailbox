@@ -1,11 +1,8 @@
 import home from './Home.module.css'
 import { GoMailRead } from "react-icons/go";
 import { useNavigate } from 'react-router-dom';
-import { useContext } from 'react';
-import AuthContext from '../../store/auth-context';
 
 const Home = () => {
-    const auth = useContext(AuthContext)
     const navigateTo = useNavigate()
 
     const welcomeHandler = () => {
@@ -13,7 +10,6 @@ const Home = () => {
     }
 
     return <>
-        {auth.loggedIn &&
             <div className={home.container}>
                 <div className={home.content}>
                     <h3><GoMailRead /></h3>
@@ -25,7 +21,6 @@ const Home = () => {
                         et dolore magna aliqua</h6>
                 </div>
             </div>
-        }
     </>
 }
 
