@@ -1,0 +1,45 @@
+.item {
+    margin: 1px;
+    background-color: #e5e4e2;
+    border: 1px solid black;
+}
+
+.item:hover {
+    box-shadow: 5px 10px 18px #888888
+}
+
+.item li {
+    display: flex;
+}
+
+.checkbox {
+    cursor: pointer;
+    margin: 4px;
+    padding: 2px 2px;
+}
+
+.email {
+    width: 20vw;
+    margin: 4px;
+    position: absolute;
+    margin-left: 10%;
+    overflow: hidden;
+}
+
+.subject {
+    width: 20vw;
+    margin: 4px;
+    position: absolute;
+    margin-left: 40%;
+    overflow: hidden;
+}
+
+.delete {
+    margin: 4px;
+    position: absolute;
+    margin-left: 95%;
+}
+
+
+
+

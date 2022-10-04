@@ -5,7 +5,7 @@ const DraftButton = (props) => {
 
     return <>
         <div className={draftbutton.content}>
-            <button onClick={draftHandler}>save draft</button>
+            <button>save draft</button>
         </div>
     </>
 }

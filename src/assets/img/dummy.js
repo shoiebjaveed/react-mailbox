@@ -13,7 +13,7 @@ export const SentData = [
     {
         id: '2',
         email: 'test@gmail.com',
-        subject: 'Test 2',
+        subject: 'Test 2 shdgsgdhsjdgh shdjhsdggsgdjsg',
         message: `Lorem ipsum dolor sit amet. Eum rerum necessitatibus et quod vero qui repudiandae dolorem.
          Vel corporis magni qui consequuntur accusamus eos enim Quis qui sunt odit est nostrum assumenda nam beatae
           rerum qui internos sunt. Et dicta libero hic debitis quasi aut exercitationem quis aut placeat veritatis aut 

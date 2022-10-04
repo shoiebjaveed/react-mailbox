@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { sentboxAction } from '../../../store/slices/sentbox-slice';
 import { sendMailData } from '../../../store/actions/sentbox-actions';
+import DraftButton from '../draftbox/DraftButton';
 
 const ComposeMail = () => {
     const mails = useSelector(state => state.sentbox.mails)
@@ -43,6 +44,8 @@ const ComposeMail = () => {
                     </div>
                     <button type='submit'>send</button>
                 </form>
+
+                <DraftButton />
             </div>
         </div>
 
