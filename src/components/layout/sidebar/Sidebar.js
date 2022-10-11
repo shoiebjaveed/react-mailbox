@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import sidebar from './Sidebar.module.css';
-import { BsPencilSquare, BsFillMoonStarsFill } from "react-icons/bs";
+import { BsPencilSquare, BsFilePersonFill } from "react-icons/bs";
 import { RiInboxFill } from "react-icons/ri";
 import { MdOutlineLabelImportant } from "react-icons/md";
 import { HiOutlineNewspaper } from "react-icons/hi";
@@ -41,7 +41,7 @@ const Sidebar = () => {
             </div>
             <div className={sidebar.bottom}>
                 <span>
-                    <BsFillMoonStarsFill />
+                    <BsFilePersonFill />
                 </span>
                 <span>
                     <AiFillSetting />

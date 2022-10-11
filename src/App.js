@@ -35,10 +35,11 @@ function App() {
         </>}
         {isloggedIn && <>
           <Route path="/inbox" element={<Inbox />} />
+          <Route path="/view-message-inbox/:id" element={<ViewSentMessage />} />
           <Route path="/write" element={<ComposeMail />} />
           <Route path="/draft" element={<Draftbox />} />
           <Route path="/sent" element={<Sentbox />} />
-          <Route path="/view-message/:id" element={<ViewSentMessage />} />
+          <Route path="/view-message-sent/:id" element={<ViewSentMessage />} />
           <Route path="*" element={<Inbox />} />
         </>}
       </Routes>

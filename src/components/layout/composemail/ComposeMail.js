@@ -25,7 +25,8 @@ const ComposeMail = () => {
             id: Math.random(),
             email: email.current.value,
             subject: subject.current.value,
-            message: message.current.value
+            message: message.current.value,
+            isRead: false
         }))
     }
 

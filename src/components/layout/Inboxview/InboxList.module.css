@@ -1,11 +1,12 @@
 .item {
-    margin: 1px;
+    margin: 0.95px;
+    cursor: pointer;
     background-color: #e5e4e2;
-    border: 1px solid black;
 }
 
 .item:hover {
-    box-shadow: 5px 10px 18px #888888
+    box-shadow: 5px 10px 18px #888888;
+    border: 1px solid black;
 }
 
 .item li {
@@ -16,6 +17,15 @@
     cursor: pointer;
     margin: 4px;
     padding: 2px 2px;
+}
+
+.read {
+    margin: 6px;
+    color: #800020;
+}
+
+.read:hover {
+    box-shadow: 5px 10px 18px #363636;
 }
 
 .email {
@@ -35,9 +45,17 @@
 }
 
 .delete {
+    cursor: pointer;
     margin: 4px;
     position: absolute;
     margin-left: 95%;
+}
+
+.delete:hover {
+    padding: 4px;
+    background-color: #800020;
+    color: white;
+    border-radius: 6px;
 }
 
 
