@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "./components/layout/header/Header";
 import Sidebar from "./components/layout/sidebar/Sidebar";
@@ -9,16 +9,33 @@ import Inbox from "./components/layout/Inboxview/Inbox";
 import Sentbox from './components/layout/sentbox/Sentbox';
 import AuthContext from "./store/auth-context";
 import ComposeMail from "./components/layout/composemail/ComposeMail";
-import { useSelector } from "react-redux";
 import ViewSentMessage from "./components/layout/sentbox/ViewSentMessage";
 import Draftbox from "./components/layout/draftbox/Draftbox";
+import UserDetails from "./components/layout/user/UserDetails";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchSentMailData, sendMailData } from "./store/actions/sentbox-actions";
+
+let initial = true
 
 function App() {
+  const sentbox = useSelector(state => state.sentbox)
   const auth = useContext(AuthContext);
-  const isloggedIn = auth.loggedIn
+  const isloggedIn = auth.loggedIn;
+  const dispatch = useDispatch()
+  
+  useEffect(() => {
+    if (initial) {
+      initial = false
+      return
+    }
+    dispatch(sendMailData(sentbox))
+  }, [sentbox, dispatch]);
 
-  const mails = useSelector(state => state.sentbox.mails)
-    console.log(mails)
+  useEffect(() => {
+    dispatch(fetchSentMailData())
+  }, [dispatch])
+
+
 
   return <>
     <BrowserRouter>
@@ -39,6 +56,7 @@ function App() {
           <Route path="/write" element={<ComposeMail />} />
           <Route path="/draft" element={<Draftbox />} />
           <Route path="/sent" element={<Sentbox />} />
+          <Route path="/user" element={<UserDetails />} />
           <Route path="/view-message-sent/:id" element={<ViewSentMessage />} />
           <Route path="*" element={<Inbox />} />
         </>}

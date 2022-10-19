@@ -1,14 +1,16 @@
 import sentbox from './Sentbox.module.css';
 import SentList from './SentList';
-import { SentData } from '../../../assets/img/dummy';
+import { useSelector } from 'react-redux';
 
 const Sentbox = () => {
+    const sent = useSelector(state => state.sentbox.mails)
+    console.log(sent)
 
     return <>
         <div className={sentbox.container}>
                 <ul>
                     {
-                        SentData.map((data) => (
+                        sent.map((data) => (
                             <SentList 
                             key={data.id}
                             id={data.id}

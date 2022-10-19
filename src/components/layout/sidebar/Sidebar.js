@@ -1,12 +1,20 @@
 import { Link } from 'react-router-dom';
 import sidebar from './Sidebar.module.css';
+import { useContext } from 'react';
+import AuthContext from '../../../store/auth-context';
 import { BsPencilSquare, BsFilePersonFill } from "react-icons/bs";
 import { RiInboxFill } from "react-icons/ri";
 import { MdOutlineLabelImportant } from "react-icons/md";
 import { HiOutlineNewspaper } from "react-icons/hi";
-import { AiFillSetting } from "react-icons/ai";
+import { FiLogOut } from "react-icons/fi";
 
 const Sidebar = () => {
+
+    const auth = useContext(AuthContext);
+
+    const logoutHandler = () => {
+        auth.logout()
+    }
 
     return <>
         <div className={sidebar.container}>
@@ -20,7 +28,7 @@ const Sidebar = () => {
                 <Link to='/inbox' style={{ color: 'inherit', textDecoration: 'inherit' }}>
                     <li className={sidebar.list}>
                         <span ><RiInboxFill /></span>
-                        <span>Inbox</span>
+                        <span>{`Inbox(0 unread)`}</span>
                     </li>
                 </Link>
                 <Link to='/sent' style={{ color: 'inherit', textDecoration: 'inherit' }}>
@@ -40,11 +48,13 @@ const Sidebar = () => {
                 <p>profiles</p>
             </div>
             <div className={sidebar.bottom}>
-                <span>
-                    <BsFilePersonFill />
-                </span>
-                <span>
-                    <AiFillSetting />
+                <Link to='/user' style={{ color: 'inherit', textDecoration: 'inherit' }}>
+                    <span>
+                        <BsFilePersonFill />
+                    </span>
+                </Link>
+                <span onClick={logoutHandler}>
+                    <FiLogOut />
                 </span>
             </div>
         </div>

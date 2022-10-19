@@ -1,33 +1,33 @@
 import composemail from './ComposeMail.module.css'
-import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
-import { useEffect, useRef } from 'react';
+import { useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { sentboxAction } from '../../../store/slices/sentbox-slice';
-import { sendMailData } from '../../../store/actions/sentbox-actions';
 import DraftButton from '../draftbox/DraftButton';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+import { useNavigate } from 'react-router-dom';
+
+let initial = true;
 
 const ComposeMail = () => {
+    const sentbox = useSelector(state => state.sentbox)
+    const navigate = useNavigate()
     const mails = useSelector(state => state.sentbox.mails)
     const dispatch = useDispatch()
     const email = useRef()
     const subject = useRef()
-    const message = useRef()
-    console.log(mails)
     
-
-    useEffect(()=> {
-        dispatch(sendMailData(mails))
-    },[mails, dispatch])
+    const [value, setValue] = useState('');    
 
     const sentHandler = (event) => {
         event.preventDefault()
         dispatch(sentboxAction.store({
-            id: Math.random(),
+            id: Math.random().toString(),
             email: email.current.value,
             subject: subject.current.value,
-            message: message.current.value,
-            isRead: false
+            message: value,
         }))
+        navigate('/inbox')  
     }
 
     return <>
@@ -38,12 +38,18 @@ const ComposeMail = () => {
                         <input type='email' placeholder='to' required ref={email} />
                     </div>
                     <div className={composemail.input}>
-                        <input type='text' placeholder='subject' required ref={subject}/>
+                        <input type='text' placeholder='subject' required ref={subject} />
                     </div>
                     <div className={composemail.textArea}>
-                        <textarea placeholder='write something....' rows='15' ref={message} />
+                        <ReactQuill theme="snow" value={value} onChange={setValue} placeholder='write someting..'
+                            style={{
+                                height: '250px',
+                                width: '520px',
+                                marginLeft: '25%',
+                                borderRadius: '5px',
+                            }} />
                     </div>
-                    <button type='submit'>send</button>
+                    <button className={composemail.submit} type='submit'>send</button>
                 </form>
 
                 <DraftButton />

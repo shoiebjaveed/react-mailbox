@@ -1,16 +1,8 @@
 import header from './Header.module.css';
 import { GiMailbox } from "react-icons/gi";
-import { FiLogOut } from "react-icons/fi";
-import { useContext } from 'react';
-import AuthContext from '../../../store/auth-context';
+import { BsFillCalendar2DateFill } from "react-icons/bs";
 
-
-const Header = () => {
-    const auth = useContext(AuthContext);
-
-    const logoutHandler = () => {
-        auth.logout()
-    }
+const Header = () => {   
 
     return <>
         <header className={header.container}>
@@ -22,7 +14,7 @@ const Header = () => {
                     <input type='text' placeholder='search for mail..' />
                 </div>
                 <div className={header.thirddiv}>
-                    <span onClick={logoutHandler}><FiLogOut /><p>logout</p></span>
+                    <span><BsFillCalendar2DateFill /></span>
                 </div>
             </nav>
         </header>

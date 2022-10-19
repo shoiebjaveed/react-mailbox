@@ -48,6 +48,7 @@ const Login = () => {
             navigateTo('/inbox')
         }).catch((err => {
             alert(err.message)
+            setButtonClick(false)
           }))//if connection failed
     }
 
